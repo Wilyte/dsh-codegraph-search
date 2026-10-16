@@ -1,6 +1,6 @@
 {
   "name": "dsh-codegraph-search",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Keyword + code-graph search tab for the dsh web GUI, docked in the built-in right sidebar",
   "type": "module",
   "main": "./lib/index.js",
@@ -47,11 +47,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tsonglew/dsh-workspace-search.git"
+    "url": "git+https://github.com/Wilyte/dsh-codegraph-search.git"
   },
-  "homepage": "https://github.com/tsonglew/dsh-workspace-search#readme",
+  "homepage": "https://github.com/Wilyte/dsh-codegraph-search#readme",
   "bugs": {
-    "url": "https://github.com/tsonglew/dsh-workspace-search/issues"
+    "url": "https://github.com/Wilyte/dsh-codegraph-search/issues"
   },
   "author": "Tsonglew <tsonglew@gmail.com>",
   "publishConfig": {
