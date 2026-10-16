@@ -2,6 +2,8 @@
 
 [![Awesome DSH Plugin](https://awesome-dsh-plugin.com/badge.svg)](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)
 
+<img width="714" alt="The Search tab in dsh's right sidebar: keyword / code graph mode switch, search filters, and the onboarding cards for both modes" src="assets/panel.png">
+
 A Search tab for the DeepSeek Harness (dsh) web GUI's **built-in right sidebar** —
 no `dsh-better-sidebar` required. One panel, two modes:
 
