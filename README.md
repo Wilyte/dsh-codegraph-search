@@ -1,6 +1,7 @@
 # dsh-codegraph-search
 
 [![Awesome DSH Plugin](https://awesome-dsh-plugin.com/badge.svg)](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)
+[![npm version](https://img.shields.io/npm/v/dsh-codegraph-search)](https://www.npmjs.com/package/dsh-codegraph-search)
 
 <img width="714" alt="The Search tab in dsh's right sidebar: keyword / code graph mode switch, search filters, and the onboarding cards for both modes" src="assets/panel.png">
 
@@ -60,19 +61,24 @@ Clicking a hit opens the file in the built-in text preview, jumping to the line.
 
 ## Install
 
+Published on npm as [`dsh-codegraph-search`](https://www.npmjs.com/package/dsh-codegraph-search):
+
 ```sh
 dsh plugin --profile web add dsh-codegraph-search
 ```
 
-Or, from a local checkout:
+From a local checkout instead — the profile then keeps it as a `link:`
+dependency, so your edits take effect on the next restart:
 
 ```sh
-dsh plugin --profile web add /path/to/dsh-codegraph-search
+git clone https://github.com/Wilyte/dsh-codegraph-search.git
+dsh plugin --profile web add ./dsh-codegraph-search
 ```
 
-The profile installs it as a local `link:` dependency. No extra sidebar plugin
-is needed; the tab registers directly with dsh's built-in right sidebar, and the
-sidebar's guide page shows a "Code search" entry.
+Either way the plugin is added to the `web` profile's bundle list, so **restart
+dsh web** to load it. No extra sidebar plugin is needed: the tab registers
+directly with dsh's built-in right sidebar, and the sidebar's guide page shows a
+"Code search" entry.
 
 ## Configuration
 
