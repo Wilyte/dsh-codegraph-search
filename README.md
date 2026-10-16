@@ -108,6 +108,15 @@ Dual-face bundle.
   routed through the Client locale service (zh/en) and the stylesheet is mounted
   through `ctx.effect`, using the GUI's own design tokens.
 
+## Credits
+
+This plugin started from [dsh-workspace-search](https://github.com/AmmiWang/dsh-workspace-search)
+by [AmmiWang](https://github.com/AmmiWang) — the original VS Code-style keyword
+search tab for dsh, then docked in
+[dsh-better-sidebar](https://github.com/omdsh-dev/DSH-better-sidebar). The code
+graph mode, streamed results and the built-in right sidebar were added on top of
+it. Thanks for the original work.
+
 ## License
 
 MIT
