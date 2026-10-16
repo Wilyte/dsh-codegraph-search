@@ -1,7 +1,7 @@
 {
-  "name": "dsh-workspace-search",
-  "version": "0.1.0",
-  "description": "VS Code-style workspace keyword search tab for the dsh web GUI, registered into dsh-better-sidebar",
+  "name": "dsh-codegraph-search",
+  "version": "0.6.0",
+  "description": "Keyword + code-graph search tab for the dsh web GUI, docked in the built-in right sidebar",
   "type": "module",
   "main": "./lib/index.js",
   "exports": {
@@ -20,13 +20,16 @@
       "patch": "./cordis.patch.yml"
     },
     "client": {
-      "platform": "web"
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar-right"
+      ]
     }
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": ">=4.0.1",
-    "@deepseek-ai/schemastery": ">=3.18.1",
-    "dsh-better-sidebar": ">=0.4.0"
+    "@deepseek-ai/schemastery": ">=3.18.1"
   },
   "engines": {
     "node": ">=22"
@@ -37,7 +40,22 @@
     "dsh",
     "dsh-plugin",
     "search",
+    "code-search",
+    "codegraph",
     "workspace",
-    "better-sidebar"
-  ]
+    "sidebar-right"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsonglew/dsh-workspace-search.git"
+  },
+  "homepage": "https://github.com/tsonglew/dsh-workspace-search#readme",
+  "bugs": {
+    "url": "https://github.com/tsonglew/dsh-workspace-search/issues"
+  },
+  "author": "Tsonglew <tsonglew@gmail.com>",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  }
 }
