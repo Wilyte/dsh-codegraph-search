@@ -1,6 +1,6 @@
 {
   "name": "dsh-codegraph-search",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Keyword + code-graph search tab for the dsh web GUI, docked in the built-in right sidebar",
   "type": "module",
   "main": "./lib/index.js",
