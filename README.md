@@ -16,7 +16,7 @@
 为 DeepSeek Harness（dsh）Web GUI 的**内置右侧栏**提供搜索标签页——无需 `dsh-better-sidebar`。一个面板，两种模式：
 
 - **关键词**——在当前会话的工作区中搜索文件**名**和**内容**，结果按文件分组并显示行号。
-- **代码图谱**——按符号名或限定名查询符号，并展开其调用方与被调用方。
+- **代码图谱**——按符号名或限定名查询符号，并以可交互的节点连线图展开其调用方与被调用方。
 
 点击任一结果会在内置文本预览中打开文件，并跳转到对应行。
 
@@ -34,14 +34,18 @@
 **代码图谱**
 
 - 需要服务器上装有 `codegraph` CLI，且工作区已执行过 `codegraph init`（索引位于 `.codegraph/`）。
-- 符号结果会显示类型、签名和位置；每行可懒加载展开调用方/被调用方。CLI 缺失、索引缺失、超时和解析失败都会给出各自的提示和可复制的修复命令。
+- 符号结果会显示类型、签名和位置；每行可懒加载展开**调用关系图**：调用方在左、当前符号居中、被调方在右，连线箭头从调用方指向被调方。悬停或键盘聚焦节点会高亮相连的边，点击（或回车）节点会在文本预览中打开其源文件。
+- 展开区顶部的「图 / 列表」开关可切回原有的调用方 / 被调方文本列表；选择会保留到下次切换。
+- CLI 缺失、索引缺失、超时和解析失败都会给出各自的提示和可复制的修复命令。
+
+<img width="651" alt="代码图谱模式中 runSearch 的调用关系图：左侧调用方 SearchBody、中间当前符号、右侧五个被调方 / The call graph of runSearch in code-graph mode: caller SearchBody on the left, the symbol in the centre, and five callees on the right" src="assets/call-graph.png">
 
 ### 使用
 
 - 面板会自动定位到**当前会话的工作区**。
 - `Enter` 执行搜索；过滤器或模式变更后约 250 ms 也会自动刷新结果。
 - `Esc` 清空查询。
-- 切换标签页不再重跑搜索：结果、滚动位置和展开状态都会保留。
+- 切换标签页不再重跑搜索：结果、滚动位置、展开状态和图 / 列表选择都会保留。
 
 ### 环境要求
 
@@ -111,7 +115,7 @@ no `dsh-better-sidebar` required. One panel, two modes:
 - **Keyword** — search file **names** and **contents** in the current session's
   workspace, grouped per file with line numbers.
 - **Code graph** — query symbols by name / qualified name and expand their
-  callers and callees.
+  callers and callees as an interactive node-link diagram.
 
 Clicking a hit opens the file in the built-in text preview, jumping to the line.
 
@@ -142,8 +146,16 @@ Clicking a hit opens the file in the built-in text preview, jumping to the line.
 - Needs the `codegraph` CLI on the server and a `codegraph init`-ed workspace
   (the index lives in `.codegraph/`).
 - Symbol results show kind, signature and location; each row lazily expands
-  callers / callees. Missing CLI, missing index, timeout and parse failures are
-  reported with their own message and a copyable fix command.
+  an **interactive call graph**: callers on the left, the symbol in the centre,
+  callees on the right, with arrows from caller to callee. Hovering or focusing
+  a node highlights its edges; clicking (or pressing Enter on) a node opens its
+  source file in the text preview.
+- A **Graph / List** switch at the top of the expanded section brings back the
+  original caller / callee text lists; the choice is kept until changed.
+- Missing CLI, missing index, timeout and parse failures are reported with
+  their own message and a copyable fix command.
+
+<img width="651" alt="The call graph of runSearch in code-graph mode: caller SearchBody on the left, the symbol in the centre, and five callees on the right" src="assets/call-graph.png">
 
 ### Usage
 
